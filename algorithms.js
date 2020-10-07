@@ -19,7 +19,7 @@ for(var i=0; i<5;i++){
 // 3, 7
 
 
- function y(num1, num2){    
+ function y(num1, num2){   
     return num1+num2;
  }
  console.log(y(2,3));
