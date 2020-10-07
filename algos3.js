@@ -56,3 +56,13 @@ function swapPairs(arr) {
 		arr[i + 1] = temp;
 	}
 }
+
+// Given a sorted array, remove duplicate values. Because array elements are already in order, all duplicate values will be grouped together. 
+function removeDupesUnnested(arr) {
+	let newArr = [];
+	for(let i = 0; i < arr.length; i++) {
+		if(arr[i] !== arr[i+1]) 
+			newArr.push(arr[i])
+	}
+	return newArr;
+}
