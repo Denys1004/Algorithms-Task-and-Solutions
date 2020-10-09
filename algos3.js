@@ -78,3 +78,10 @@ for(var i=0; i<5;i++){
     console.log(i);
  }
 // 1, 3, 5
+
+for(var i=0; i<5; i++)
+{
+   i = i + 3; 
+   console.log(i);
+}
+// 3, 7
