@@ -100,3 +100,10 @@ function y(num1, num2){
  console.log(y(2,3));
  console.log(y(3,5));
 // 2, 5, 3, 8
+
+a = 15;
+console.log(a);
+function y(a){
+   console.log(a);   
+   return a;
+}
