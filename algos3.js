@@ -107,3 +107,6 @@ function y(a){
    console.log(a);   
    return a;
 }
+b = y(10);
+console.log(b);
+//  15, 10, 10
