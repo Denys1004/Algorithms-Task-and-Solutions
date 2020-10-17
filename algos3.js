@@ -118,3 +118,5 @@ function y(a){
     return a*2;
 }
  b = y(10);
+ console.log(b);
+ // 15, 10, 20
