@@ -106,3 +106,15 @@ function insertAt(arr, idx, val) {
 	
 	arr[idx] = val;
 }
+
+// Given an array and an index into array, remove and return the array value at that index. Do this without using built-in array methods except pop(). 
+// Think of popFront(arr) as equivalent to removeAt(arr,0).
+function removeAt(arr, idx) {
+   // shift array values right from idx
+  toRemove = arr[idx];
+  for(let i = idx; i < arr.length-1; i++) {
+       arr[i] = arr[i+1];
+   }
+   arr.length = arr.length-1;
+   return toRemove;
+}
