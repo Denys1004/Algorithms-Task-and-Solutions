@@ -5,6 +5,7 @@
 // 3. We need to make sure that key from obj1 is an key in obj2, AND how many of this key we have in obj1 should be same qty in obj2
 
 // Example 1:
+// *****************************************************************************************************************
 // Write a function called same, which accepts two arrays. The function should return true if every value in the array has its corresponding value squared in the second array. 
 // The frequency of values must be the same. For example:
 //same([1, 2, 3], [4, 1, 9])  => true
@@ -50,6 +51,7 @@ same([1,2,3,2,5], [9,1,4,4,11])
 
 
 // Example 2:
+// *****************************************************************************************************************
 // Given two strings, write a function to determine if the second string is an anagram of the first. 
 // An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema formed from iceman 
 // validAnagram('', '') // true
@@ -91,3 +93,80 @@ function validAnagram(arr1, arr2){
 validAnagram('anagram', 'nagaram') // true
 validAnagram('awesome', 'awesomi') // false
 
+
+// Example 3:
+// *****************************************************************************************************************
+// Write a function called  sameFrequency. 
+//Given two positive integers, find out if the two numbers have the same frequency of digits.
+sameFrequency(3589578, 5879385) // true
+sameFrequency(182, 281) // true
+sameFrequency(34, 14) // false
+sameFrequency(3589578, 5879385) // true
+sameFrequency(22, 222) // false
+
+function sameFrequency(num1, num2){
+    num1 = num1.toString()
+    num2 = num2.toString()
+    if(num1.length !== num2.length){
+        return false;
+    }
+    let obj1 = {};
+    let obj2 = {};
+    for(let i = 0; i<num1.length; i++){
+        if(num1[i] in obj2){
+            obj2[num1[i]] += 1;
+        }else{
+            obj2[num1[i]] = 1;
+        }
+    }
+
+    for(let j = 0; j<num1.length; j++){
+        if(num2[j] in obj1){
+            obj1[num2[j]] += 1;
+        }else{
+            obj1[num2[j]] = 1;
+        }
+    }
+
+    for(let key in obj1){
+        if(!(key in obj2)){
+            return false
+        }
+        if(obj1[key] !== obj2[key]){
+            return false
+        }
+    }
+    return true
+}
+
+
+// Example 4:
+// *****************************************************************************************************************
+// Implement a function called,  areThereDuplicates  which accepts a variable number of arguments, and checks whether there are any duplicates 
+// among the arguments passed in. You can solve this using the frequency counter pattern OR the multiple pointers pattern.
+// areThereDuplicates(1, 2, 3) // false
+// areThereDuplicates(1, 2, 2) // true
+// areThereDuplicates('a', 'b', 'c', 'a') // true
+
+function areThereDuplicates() {
+    let obj = {};
+
+    for(let i in arguments){
+        let value = arguments[i]
+        if(value in obj){
+            obj[value] += 1;
+        }else{
+            obj[value] = 1;
+        }
+    }
+
+    for(let val in obj){
+        if(obj[val] > 1){
+            return true;
+        }
+    }
+    return false;
+}
+
+areThereDuplicates(1, 2, 2) // true
+areThereDuplicates('a', 'b', 'c', 'a') // true
