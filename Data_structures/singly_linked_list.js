@@ -115,7 +115,7 @@ class SinglyLinkedList{
         return false;
     }
 
-    // INSERT - accepts position and value,  insrts a new node at position we specify
+    // INSERT - accepts position and value,  inserts a new node at position we specify
     insert(index_num, value){
         if(index_num<0 || index_num>this.length){
             console.log("INSERT - false");
