@@ -169,30 +169,50 @@ class DoublyLinkedList{
         console.log(arr);
         return this;
     }
-
     reverse(){
-        let cur_head = this.head; // меняем местами head and tail
-        this.head = this.tail;
-        this.tail = cur_head;
-
-
+        let curent = this.head; // меняем местами head and tail
         let next = null;
-        let prev = null;
-        let curent = this.head;
 
-        for(let i=0; i<this.length; i++){
+        while(curent){
             next = curent.prev;
-            next.prev = curent;
+            curent.prev = curent.next;
             curent.next = next;
-            curent.prev = prev;
 
-            curent = next;
+            curent = curent.prev; // step forward
+
+            if(next !== null){
+                this.head = next.prev
+            }
             
         }
-        print()
-        console.log(this);
         return this;
     }
+
+    // reverse(){
+    //     let curent = this.head; // меняем местами head and tail
+    //     this.head = this.tail;
+    //     this.tail = curent;
+
+    //     let next = null;
+    //     let prev = null;
+
+    //     for(let i=0; i<this.length; i++){
+    //         next = curent.prev;
+    //         next.prev = curent;
+
+    //         curent.prev = prev;
+    //         curent.next = next;
+            
+    //         curent = next;
+    //         prev = curent;
+    //         if(curent === this.head){
+    //             curent.next = null;
+    //             curent.prev = prev;
+    //         }
+            
+    //     }
+    //     return this;
+    // }
 
 
 }
@@ -208,10 +228,9 @@ list.push('Node7')
 list.push('Node8')
 // list.push("Node3")
 
-console.log(list);
+
 list.print()
 list.reverse()
 list.print()
-// list.pop()
 
-console.log(list);
+// list.pop()
